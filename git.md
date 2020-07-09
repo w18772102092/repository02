@@ -148,4 +148,50 @@ feature_blue 分支
 
 ​		git merge [有新内容分支名]
 
-解决冲突
+## 解决冲突
+
+### 	冲突的解决
+
+​			第一步：编辑文件，删除特殊符号
+
+​			第二步：把文件修改到满意的程度，保存退出
+
+​			第三步：git add [文件名]
+
+​			第四步：git commit -m "日志信息"
+
+​				注意：此时commit一定不能带具体文件名
+
+
+
+## 拉取操作
+
+​	pull=fetch+merge
+
+​	fetch不会导致本地的文件，可以通过 git checkout origin/master来查看fetch下来的文件，然后再通过 git merge origin/master 来将fetch下来的文件进行合并
+
+​	git fetch [远程库地址别名] [远程分支名]
+
+​	git merge [远程库地址别名] [远程分支名]
+
+
+
+## 解决冲突
+
+### 	要点
+
+​		如果不是基于github远程库的最新版所做的修改，不能推送，必须先拉取。
+
+​		拉取下来后如果进入冲突状态，则按照“分支冲突解决”，操作解决即可。
+
+
+
+## 跨团队协作
+
+​	将工程的https://xxxxxx路径发给外部人员，然后进行访问点击页面上的fork按钮
+
+​	fork，是要外部人员进行的操作
+
+​	外部人员将库clone下来就可以了，然后对文件进行修改，然后再上传到外部人员远程仓库
+
+​	然后进行pull requests，再点击New pull Requests，再点击Create pull Requests
