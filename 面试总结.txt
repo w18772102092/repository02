@@ -1,0 +1,30 @@
+Nginx是干什么的？
+Nginx可以进行反向代理和负载均衡，负载均衡中配置文件中写的ip地址是虚拟的。
+
+Redis中怎么保存对象？
+通过StringRedisTemplate模板中的opsForValue()方法，然后再通过fastjson把对象转化为字符串，在用set()方法进行保存
+
+ElasticSearch在你的项目中是怎么用的？
+1.先通过ElasticsearchRestTemplate创建索引库
+2.在dao层中创建一个接口继承ElasticsearchRepository接口添加商品信息
+3.通过@EnableElasticsearchRepositories注解为dao层创建代理类对象
+4.调用代理类对象中的save()方法保存商品信息
+5.通过QueryBuilders中的静态方法来构造查询方法并封装查询条件
+6.通过创建NativeQueryBuilder对象中的withQuery()方法并将QueryBuilders对象传入，构建真正的查询条件
+7.通过代理类对象中的search()方法来进行查询
+8.将查询到的对象封装到JavaBean中
+
+SpringMVC与Ajax交互的时候要不要引用什么包？
+需要引用gson、jackjson这类jar包
+
+JDBC中连接数据库的步骤？
+1.注册驱动 2.创建connection对象 3.准备SQL语句创建prestatement对象 4.执行SQL语句 5.获取ResultSet对象并封装到JavaBean中 6.关闭连接
+
+SpringBoot中的两个重要的配置是什么？
+Spring Boot 的核心配置文件是 application 和 bootstrap 配置文件。
+application 配置文件这个容易理解，主要用于 Spring Boot 项目的自动化配置。
+bootstrap 配置文件有以下几个应用场景。
+使用 Spring Cloud Config 配置中心时，
+这时需要在 bootstrap 配置文件中添加连接到配置中心的配置属性来加载外部配置中心的配置信息；
+一些固定的不能被覆盖的属性；
+一些加密/解密的场景
